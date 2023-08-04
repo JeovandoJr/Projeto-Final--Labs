@@ -17,9 +17,8 @@ Essas classes contêm métodos para aplicar o filtro na imagem original e retorn
 
 ### Classe Principal:
 
-Representa o programa principal que faz a integração e coordena todas as classes. Essa classe exibe um menu interativo para o usuário com as seguintes
+Representa o programa principal que faz a integração e coordena todas as classes. Essa classe exibe um menu interativo para o usuário com as seguintes opções:
 
-opções:
 1. Informar o caminho da imagem: Permite ao usuário inserir o caminho para a imagem de forma que o programa diferencie entre uma imagem local e uma imagem pública da Internet.
 
 2. Escolher o filtro a ser aplicado: Permite ao usuário selecionar um dos filtros disponíveis.
