@@ -13,7 +13,7 @@ class Download:
             resposta = requests.get(self.url)
             resposta.raise_for_status() #Verifica se houve algum erro na requisição
 
-            with open(destino_arquivo, "wb") as file:
+            with open(self.destino_arquivo, "wb") as file:
                 file.write(resposta.content)
             
             print(f"Download Completo. Arquivo Salvo Em : {self.destino_arquivo}")
