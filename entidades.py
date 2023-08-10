@@ -19,7 +19,7 @@ class Download:
     def download_file(self):
         try:
             resposta = requests.get(self.url)
-            resposta.raise_for_status() #Verifica se houve algum erro na requisição
+            resposta.raise_for_status() 
 
             with open(self.destino_arquivo, "wb") as file:
                 file.write(resposta.content)
