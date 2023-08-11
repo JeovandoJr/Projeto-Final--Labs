@@ -18,11 +18,11 @@ class Util:
     nome_arquivo, extensao = os.path.splitext(os.path.basename(caminho_arquivo))
     return nome_arquivo, extensao
 
-  def wait_for_file(self,file_path, interval=1):
+  def wait_for_file(self, caminho, intervalo=1):
       print('Aguarde...')
-      while not os.path.exists(file_path):
-        time.sleep(interval)
-        interval = interval + 1
+      while not os.path.exists(caminho):
+        time.sleep(intervalo)
+        intervalo = intervalo + 1
         print(".", end=" ")
         
 class Main:
