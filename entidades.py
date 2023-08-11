@@ -5,9 +5,9 @@ vai possuir as classes de Download e Imagem.
     -Está faltando melhorar o sistema de validações.
 
 '''
+from PIL import Image
 import requests
 import os
-import io
 
 #Classes do Projeto:
 #Classe para fazer o Download da Imagem
