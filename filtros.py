@@ -1,11 +1,10 @@
 '''
 Aqui temos um esboço dos filtros que o professor quer.
-    -Precisamos refazer os filtros: Cartoon, ++++Negativa+++++ e Contorno
 '''
 from PIL import ImageFilter, ImageOps
 
 class EscalaDeCinza:
-    def aplly_filter(self, image):
+    def aplicar_filtro(self, image):
         # Converte a imagem para Escala de Cinza
         escala_de_cinza = image.convert("L")
 
@@ -13,7 +12,7 @@ class EscalaDeCinza:
 
 # Teste: Coloacando primeiro colocando cinza depois o preto
 class PretoEBranco:
-    def aplly_filter(self, image):
+    def aplicar_filtro(self, image):
         # Converte a imagem para Escala de Cinza
         escala_de_cinza = image.convert("L")
 
@@ -24,7 +23,7 @@ class PretoEBranco:
     
 # Teste do Filtro Cartoon --- Modificado
 class Cartoon:
-    def aplly_filter(self, image):
+    def aplicar_filtro(self, image):
         # Aplica o filtro de Escala de Cinza
         imagem_cinza = image.convert("L")
         
@@ -38,7 +37,7 @@ class Cartoon:
 
 # Modificado
 class Negativo:
-    def aplly_filter(self, image):
+    def aplicar_filtro(self, image):
         #converter para RGB
         image = image.convert('RGB')
         # Aplica o filtro de Modo Foto Negativa
@@ -48,14 +47,14 @@ class Negativo:
 
 # Teste de Modo Contorno
 class Contorno:
-    def aplly_filter(self, image):
+    def aplicar_filtro(self, image):
         # Aplica o filtro de Contorno
         imagem_contorno = image.filter(ImageFilter.CONTOUR)
         return imagem_contorno
 
 # Teste de Modo Blurred
 class Blurred:
-    def aplly_filter(self, image):
+    def aplicar_filtro(self, image):
         # Aplica o filtro de Blurred
         imagem_blurred = image.filter(ImageFilter.BLUR)
 
