@@ -39,6 +39,8 @@ class Cartoon:
 # Modificado
 class Negativo:
     def aplly_filter(self, image):
+        #converter para RGB
+        image = image.convert('RGB')
         # Aplica o filtro de Modo Foto Negativa
         imagem_negativa = ImageOps.invert(image)
 
