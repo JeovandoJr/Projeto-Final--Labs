@@ -29,7 +29,7 @@ class Cartoon:
         imagem_cinza = image.convert("L")
         
         # Aplica o filtro de cartoon
-        imagem_cartoon = image.filter(ImageFilter.FIND_EDGES)
+        imagem_cartoon = imagem_cinza.filter(ImageFilter.FIND_EDGES)
         
         # Aplica o filtro de Suavização
         #imagem_suavizada = imagem_cinza.filter(ImageFilter.SMOOTH)
