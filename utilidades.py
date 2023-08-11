@@ -63,8 +63,8 @@ class Main:
      
      
   def listar_conteudo(self):
-    directory = "."  # Replace with the actual directory path
-    files = os.listdir(directory)
+    diretorio = "."
+    files = os.listdir(diretorio)
     jpeg_files = [file for file in files if file.lower().endswith(".jpeg") or file.lower().endswith(".jpg")]
     png_files = [file for file in files if file.lower().endswith(".png")]
     lista_imagens = jpeg_files + png_files
