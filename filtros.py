@@ -26,7 +26,7 @@ class PretoEBranco:
 class Cartoon:
     def aplly_filter(self, image):
         # Aplica o filtro de Escala de Cinza
-        imagem_cinza = imagem_contorno.convert("L")
+        imagem_cinza = image.convert("L")
         
         # Aplica o filtro de cartoon
         imagem_cartoon = image.filter(ImageFilter.FIND_EDGES)
