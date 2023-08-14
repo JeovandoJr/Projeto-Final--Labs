@@ -1,10 +1,4 @@
-'''
-Esse arquivo o professor utilizou para:
-    -Verificar a url da imagem
-    -Obter o caminho da imagem
-    -Listar as imagens do diretório atual
-    
-'''
+
 import entidades
 import filtros
 import os
@@ -31,43 +25,98 @@ class Main:
 
   def cria_imagem(self, minha_url):
     try:
-      print(f'URL: {minha_url}')
+      # print(f'URL: {minha_url}')
+
       nome_arquivo, extensao_arquivo = self.utilidades.extrair_nome_extensao_url(minha_url)
       arquivo = nome_arquivo + extensao_arquivo
-      print(f'Arquivo: {arquivo}')
-      meu_download = entidades.Download(url=minha_url, path_arquivo=arquivo)
-      print(f'Inicia download...')
+
+      # print(f'Arquivo: {arquivo}')
+      meu_download = entidades.Download(url=minha_url, destino_arquivo=arquivo)
+
       if meu_download.download_file():
         print(f'Download concluído!')
       else:
         print('Erro durante o download!')
-      
-      #Para reproduzir a imagem  
-      imagem = entidades.Imagem(id=1, nome_arquivo=arquivo, path_arquivo=arquivo)
-      print(imagem)
+
+      imagem = entidades.Imagem(id=1, nome_arquivo=arquivo, destino_arquivo=arquivo)
+      # print(imagem)
       return imagem.conteudo()
+
     except Exception as ex:
       print(f'Erro ao criar imagem: {str(ex)}')
 
-  def aplica_filtro(self,minha_imagem, nome, extensao, filtro):
+  # Filtros:
+  def aplica_filtro_escala_de_cinza (self, minha_imagem, nome):
     try:
-        print('Aplicando filtro')
-        # Aplicar o filtro
-        imagem = filtro.apply_filter(minha_imagem)
-        # Salvar a imagem
-        nome = nome + '_imagem.'+ extensao
-        imagem.save(nome)
-        print(f'Filtro grayscale aplicado com sucesso! Arquivo salvo em {nome}')
+      escalaDeCinza_filtro = filtros.EscalaDeCinza()
+      filtro_EscalaDeCinza_aplicado = escalaDeCinza_filtro.aplicar_filtro(minha_imagem)
+      nome = nome + "_escala_de_cinza.jpg"
+      filtro_EscalaDeCinza_aplicado.save(nome)
+      print(f'Filtro Escala de Cinza aplicado com sucesso!\n')
     except Exception as ex:
-      print(f'Erro ao aplicar filtro: {str(ex)}')
-     
-     
-  def listar_conteudo(self):
-    diretorio = "."
-    files = os.listdir(diretorio)
-    jpeg_files = [file for file in files if file.lower().endswith(".jpeg") or file.lower().endswith(".jpg")]
-    png_files = [file for file in files if file.lower().endswith(".png")]
-    lista_imagens = jpeg_files + png_files
+      print(f"Erro ao aplicar filtro escala de cinza: {str(ex)}")
+
+  def aplica_filtro_preto_e_branco (self, minha_imagem, nome):
+    try:
+      pretoEBranco_filtro = filtros.PretoEBranco()
+      filtro_PretoEBranco_aplicado = pretoEBranco_filtro.aplicar_filtro(minha_imagem)
+      nome = nome + "_preto_e_branco.jpg"
+      filtro_PretoEBranco_aplicado.save(nome)
+      print(f'Filtro Preto e Branco aplicado com sucesso!\n')
+    except Exception as ex:
+      print(f"Erro ao aplicar filtro Preto e Branco: {str(ex)}")
+
+  def aplica_filtro_cartoon (self, minha_imagem, nome):
+    try:
+      cartoon_filtro = filtros.Cartoon()
+      filtro_Cartoon_aplicado = cartoon_filtro.aplicar_filtro(minha_imagem)
+      nome = nome + "_cartoon.jpg"
+      filtro_Cartoon_aplicado.save(nome)
+      print(f'Filtro Cartoon aplicado com sucesso!\n')
+    except Exception as ex:
+      print(f"Erro ao aplicar filtro Cartoon: {str(ex)}")
+
+  def aplica_filtro_negativo (self, minha_imagem, nome):
+    try:
+      negativo_filtro = filtros.Negativo()
+      filtro_Negativo_aplicado = negativo_filtro.aplicar_filtro(minha_imagem)
+      nome = nome + "_negativo.jpg"
+      filtro_Negativo_aplicado.save(nome)
+      print(f'Filtro Negativo aplicado com sucesso!')
+    except Exception as ex:
+      print(f"Erro ao aplicar filtro Negativo: {str(ex)}")
+      
+
+  def aplica_filtro_contorno (self, minha_imagem, nome):
+    try:
+      contorno_filtro = filtros.Contorno()
+      filtro_Contorno_aplicado = contorno_filtro.aplicar_filtro(minha_imagem)
+      nome = nome + "_contorno.jpg"
+      filtro_Contorno_aplicado.save(nome)
+      print(f'Filtro Contorno aplicado com sucesso!')
+    except Exception as ex:
+      print(f"Erro ao aplicar filtro Contorno: {str(ex)}")
+
+  def aplica_filtro_blurred (self, minha_imagem, nome):
+    try:
+      blurred_filtro = filtros.Blurred()
+      filtro_Blurred_aplicado = blurred_filtro.aplicar_filtro(minha_imagem)
+      nome = nome + "_blurred.jpg"
+      filtro_Blurred_aplicado.save(nome)
+      print(f'Filtro Blurred aplicado com sucesso!')
+    except Exception as ex:
+      print(f"Erro ao aplicar filtro Blurred: {str(ex)}")
     
-    return lista_imagens
-  
+  # def listar_conteudo(self):
+  #   diretorio = "."
+  #   files = os.listdir(diretorio)
+  #   jpeg_files = [file for file in files if file.lower().endswith(".jpeg") or file.lower().endswith(".jpg")]
+  #   png_files = [file for file in files if file.lower().endswith(".png")]
+  #   lista_imagens = jpeg_files + png_files
+  #   return lista_imagens
+
+  # def listar_imagens_do_diretorio_atual(self):
+  #   imagens = [f for f in os.listdir() if f.lower().endswith(".jpg", ".jpeg", ".png")]
+  #   print("Arquivos de imagens encontrados no diretório atual:")
+  #   for imagem in imagens:
+  #     print(imagem)  

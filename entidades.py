@@ -1,10 +1,4 @@
-'''
-Seguindo o prjeto que o prefessor apresentou em aula, aparentemente o arquivo entidades 
-vai possuir as classes de Download e Imagem.
 
-    -Está faltando melhorar o sistema de validações.
-
-'''
 from PIL import Image
 import requests
 import os
@@ -23,14 +17,15 @@ class Download:
 
             with open(self.destino_arquivo, "wb") as file:
                 file.write(resposta.content)
-            
-            print(f"Download Completo. Arquivo Salvo Em : {self.destino_arquivo}")
+                return True
+            # print(f"Download Completo. Arquivo Salvo Em : {self.destino_arquivo}")
         
         except requests.exceptions.MissingSchema:
             print("URL Inválida. Certifique-se de fornecer uma URL válida.")
-
+            return False
         except requests.exceptions.RequestException as e:
             print(f"Erro na Conexão: {e}")
+            return False
 
 # Classe para representar um arquivo de imagem, .jpg ou .png
 class Imagem:
@@ -40,7 +35,6 @@ class Imagem:
         self.id = id
         self.nome_arquivo = nome_arquivo
         self.local_referencia = destino_arquivo
-
         try:
             self.imagem = Image.open(destino_arquivo)
         except Exception as ex:

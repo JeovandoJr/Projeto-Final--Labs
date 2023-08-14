@@ -1,6 +1,4 @@
-'''
-Aqui temos um esboço dos filtros que o professor quer.
-'''
+
 from PIL import ImageFilter, ImageOps
 
 class EscalaDeCinza:
