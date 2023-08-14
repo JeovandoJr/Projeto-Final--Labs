@@ -46,77 +46,71 @@ class Main:
       print(f'Erro ao criar imagem: {str(ex)}')
 
   # Filtros:
-  def aplica_filtro_escala_de_cinza (self, minha_imagem, nome):
+  def aplica_filtro_escala_de_cinza (self, minha_imagem, nome, extencao):
     try:
       escalaDeCinza_filtro = filtros.EscalaDeCinza()
       filtro_EscalaDeCinza_aplicado = escalaDeCinza_filtro.aplicar_filtro(minha_imagem)
-      nome = nome + "_escala_de_cinza.jpg"
-      filtro_EscalaDeCinza_aplicado.save(nome)
+      nome1 = nome + "_escala_de_cinza" + extencao
+      filtro_EscalaDeCinza_aplicado.save(nome1)
       print(f'Filtro Escala de Cinza aplicado com sucesso!\n')
     except Exception as ex:
       print(f"Erro ao aplicar filtro escala de cinza: {str(ex)}")
 
-  def aplica_filtro_preto_e_branco (self, minha_imagem, nome):
+  def aplica_filtro_preto_e_branco (self, minha_imagem, nome, extencao):
     try:
       pretoEBranco_filtro = filtros.PretoEBranco()
       filtro_PretoEBranco_aplicado = pretoEBranco_filtro.aplicar_filtro(minha_imagem)
-      nome = nome + "_preto_e_branco.jpg"
-      filtro_PretoEBranco_aplicado.save(nome)
+      nome1 = nome + "_preto_e_branco" + extencao
+      filtro_PretoEBranco_aplicado.save(nome1)
       print(f'Filtro Preto e Branco aplicado com sucesso!\n')
     except Exception as ex:
       print(f"Erro ao aplicar filtro Preto e Branco: {str(ex)}")
 
-  def aplica_filtro_cartoon (self, minha_imagem, nome):
+  def aplica_filtro_cartoon (self, minha_imagem, nome, extencao):
     try:
       cartoon_filtro = filtros.Cartoon()
       filtro_Cartoon_aplicado = cartoon_filtro.aplicar_filtro(minha_imagem)
-      nome = nome + "_cartoon.jpg"
-      filtro_Cartoon_aplicado.save(nome)
+      nome1 = nome +  "_cartoon" + extencao
+      filtro_Cartoon_aplicado.save(nome1)
       print(f'Filtro Cartoon aplicado com sucesso!\n')
     except Exception as ex:
       print(f"Erro ao aplicar filtro Cartoon: {str(ex)}")
 
-  def aplica_filtro_negativo (self, minha_imagem, nome):
+  def aplica_filtro_negativo (self, minha_imagem, nome, extencao):
     try:
       negativo_filtro = filtros.Negativo()
       filtro_Negativo_aplicado = negativo_filtro.aplicar_filtro(minha_imagem)
-      nome = nome + "_negativo.jpg"
-      filtro_Negativo_aplicado.save(nome)
+      nome1 = nome + "_negativo" + extencao
+      filtro_Negativo_aplicado.save(nome1)
       print(f'Filtro Negativo aplicado com sucesso!')
     except Exception as ex:
       print(f"Erro ao aplicar filtro Negativo: {str(ex)}")
       
 
-  def aplica_filtro_contorno (self, minha_imagem, nome):
+  def aplica_filtro_contorno (self, minha_imagem, nome, extencao):
     try:
       contorno_filtro = filtros.Contorno()
       filtro_Contorno_aplicado = contorno_filtro.aplicar_filtro(minha_imagem)
-      nome = nome + "_contorno.jpg"
-      filtro_Contorno_aplicado.save(nome)
+      nome1 = nome + "_contorno" + extencao
+      filtro_Contorno_aplicado.save(nome1)
       print(f'Filtro Contorno aplicado com sucesso!')
     except Exception as ex:
       print(f"Erro ao aplicar filtro Contorno: {str(ex)}")
 
-  def aplica_filtro_blurred (self, minha_imagem, nome):
+  def aplica_filtro_blurred (self, minha_imagem, nome, extencao):
     try:
       blurred_filtro = filtros.Blurred()
       filtro_Blurred_aplicado = blurred_filtro.aplicar_filtro(minha_imagem)
-      nome = nome + "_blurred.jpg"
-      filtro_Blurred_aplicado.save(nome)
+      nome1 = nome + "_blurred" + extencao
+      filtro_Blurred_aplicado.save(nome1)
       print(f'Filtro Blurred aplicado com sucesso!')
     except Exception as ex:
       print(f"Erro ao aplicar filtro Blurred: {str(ex)}")
     
-  # def listar_conteudo(self):
-  #   diretorio = "."
-  #   files = os.listdir(diretorio)
-  #   jpeg_files = [file for file in files if file.lower().endswith(".jpeg") or file.lower().endswith(".jpg")]
-  #   png_files = [file for file in files if file.lower().endswith(".png")]
-  #   lista_imagens = jpeg_files + png_files
-  #   return lista_imagens
-
-  # def listar_imagens_do_diretorio_atual(self):
-  #   imagens = [f for f in os.listdir() if f.lower().endswith(".jpg", ".jpeg", ".png")]
-  #   print("Arquivos de imagens encontrados no diretório atual:")
-  #   for imagem in imagens:
-  #     print(imagem)  
+  def listar_conteudo(self):
+    diretorio = "."
+    files = os.listdir(diretorio)
+    jpeg_files = [file for file in files if file.lower().endswith(".jpeg") or file.lower().endswith(".jpg")]
+    png_files = [file for file in files if file.lower().endswith(".png")]
+    lista_imagens = jpeg_files + png_files
+    return lista_imagens

@@ -1,6 +1,7 @@
 import entidades
 import filtros
 import utilidades
+import os
 
 class Principal:
     def menu(self):
@@ -26,6 +27,7 @@ class Principal:
         while True:
             escolhas = Principal()
             escolhas.menu()
+            
             opcao = int(input("Selecione uma opção(1-4): "))
 
             if opcao == 1:
@@ -33,6 +35,10 @@ class Principal:
                 nome_imagem = input("Informe o nome da imagem: ")
 
                 imagem1 = app_principal.cria_imagem(caminho_imagem)
+                
+                nome_original, extencao = os.path.splitext(os.path.basename(caminho_imagem))
+                
+                
             
             elif opcao == 2:
                 if imagem1:
@@ -41,24 +47,25 @@ class Principal:
                     opcao_filtro = int(input("Selecione um filtro (1-6): "))
 
                     if opcao_filtro == 1:
-                        app_principal.aplica_filtro_escala_de_cinza(imagem1, nome_imagem)
+                        app_principal.aplica_filtro_escala_de_cinza(imagem1, nome_imagem, extencao)
                     elif opcao_filtro == 2:
-                        app_principal.aplica_filtro_preto_e_branco(imagem1, nome_imagem)
+                        app_principal.aplica_filtro_preto_e_branco(imagem1, nome_imagem, extencao)
                     elif opcao_filtro == 3:
-                        app_principal.aplica_filtro_cartoon(imagem1, nome_imagem)
+                        app_principal.aplica_filtro_cartoon(imagem1, nome_imagem, extencao)
                     elif opcao_filtro == 4:
-                        app_principal.aplica_filtro_negativo(imagem1, nome_imagem)
+                        app_principal.aplica_filtro_negativo(imagem1, nome_imagem, extencao)
                     elif opcao_filtro == 5:
-                        app_principal.aplica_filtro_contorno(imagem1, nome_imagem)
+                        app_principal.aplica_filtro_contorno(imagem1, nome_imagem, extencao)
                     elif opcao_filtro == 6:
-                        app_principal.aplica_filtro_blurred(imagem1, nome_imagem)
+                        app_principal.aplica_filtro_blurred(imagem1, nome_imagem, extencao)
                     else:
                         print("Opção Inválida.")
                 else:
                     print("Irfome o caminho da imagem antes de escolher o filtro.")
             
             elif opcao == 3:
-                ...
+                for elemento in app_principal.listar_conteudo():
+                    print(elemento)
             elif opcao == 4:
                 print("Programa Encerrado.")
                 break
