@@ -26,9 +26,14 @@ class Principal:
 
         while True:
             escolhas = Principal()
-            escolhas.menu()
             
-            opcao = int(input("Selecione uma opção(1-4): "))
+            opcao = 0
+            while (opcao < 1 or opcao > 4):
+                escolhas.menu()
+                try:
+                    opcao = int(input("Selecione uma opção(1-4): "))
+                except ValueError as e:
+                    print("Ocirreu um erro:", str(e))
 
             if opcao == 1:
                 caminho_imagem = input("\nInforme o caminho da imagem: ")
@@ -43,9 +48,15 @@ class Principal:
             elif opcao == 2:
                 if imagem1:
                     escolhas_filtros = Principal()
-                    escolhas_filtros.menu_filtros()
-                    opcao_filtro = int(input("Selecione um filtro (1-6): "))
-
+                    
+                    opcao_filtro = 0
+                    while (opcao_filtro < 1 or opcao_filtro > 6):
+                        try:
+                            escolhas_filtros.menu_filtros()
+                            opcao_filtro = int(input("Selecione um filtro (1-6): "))
+                        except ValueError as e:
+                            print("Ocirreu um erro:", str(e))
+                    
                     if opcao_filtro == 1:
                         app_principal.aplica_filtro_escala_de_cinza(imagem1, nome_imagem, extencao)
                     elif opcao_filtro == 2:
