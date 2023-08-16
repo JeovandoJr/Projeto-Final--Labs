@@ -14,7 +14,6 @@ class Download:
         try:
             resposta = requests.get(self.url)
             resposta.raise_for_status() 
-
             with open(self.destino_arquivo, "wb") as file:
                 file.write(resposta.content)
                 return True

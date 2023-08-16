@@ -4,6 +4,8 @@ import filtros
 import os
 import time
 from urllib.parse import urlparse
+from tkinter import *
+from tkinter import filedialog
 
 class Util:
   def extrair_nome_extensao_url(self,url):
@@ -25,8 +27,6 @@ class Main:
 
   def cria_imagem(self, minha_url):
     try:
-      # print(f'URL: {minha_url}')
-
       nome_arquivo, extensao_arquivo = self.utilidades.extrair_nome_extensao_url(minha_url)
       arquivo = nome_arquivo + extensao_arquivo
 
@@ -40,7 +40,7 @@ class Main:
 
       imagem = entidades.Imagem(id=1, nome_arquivo=arquivo, destino_arquivo=arquivo)
       # print(imagem)
-      return imagem.conteudo()
+      return imagem.conteudo(), extensao_arquivo
 
     except Exception as ex:
       print(f'Erro ao criar imagem: {str(ex)}')
