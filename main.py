@@ -33,8 +33,6 @@ class Principal:
         app_principal = utilidades.Main(utilidades1)
         escolhas = Principal()
         
-        
-        
         while True:
             opcao = 0
             while (opcao < 1 or opcao > 4):

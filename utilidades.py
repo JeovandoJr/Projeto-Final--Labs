@@ -8,6 +8,10 @@ from tkinter import *
 from tkinter import filedialog
 
 class Util:
+  def extrair_nome_extesao_local(self, caminho):
+    nome, extensao = os.path.splitext(caminho)
+    return nome, extensao
+  
   def extrair_nome_extensao_url(self,url):
     parsed_url = urlparse(url)
     caminho_arquivo = parsed_url.path
