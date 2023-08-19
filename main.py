@@ -98,6 +98,8 @@ class Principal:
                 for elemento in app_principal.listar_conteudo():
                     print(elemento)
             elif opcao == 4:
+                print("Aguarde...")
+                app_principal.apagar_imagens(app_principal.listar_conteudo())
                 print("Programa Encerrado.")
                 break
             else:

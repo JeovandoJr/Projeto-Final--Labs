@@ -58,7 +58,6 @@ class Main:
       print(f'Erro ao criar imagem: {str(ex)}')
       
   def cria_imagem2(self, filename):
-    global imagem
     nome, extensao = os.path.splitext(filename)
     nome1 = nome + extensao
     imagem = Image.open(filename)
@@ -134,3 +133,12 @@ class Main:
     png_files = [file for file in files if file.lower().endswith(".png")]
     lista_imagens = jpeg_files + png_files
     return lista_imagens
+  
+  import os
+
+  def apagar_imagens(self, lista_imagens):
+      for imagem in lista_imagens:
+          try:
+              os.remove(imagem)
+          except Exception as e:
+              print('Falha ao excluir %s. Razão: %s' % (imagem, e))
