@@ -2,6 +2,7 @@
 from PIL import Image
 import requests
 import os
+from tkinter import Tk, filedialog
 
 #Classes do Projeto:
 #Classe para fazer o Download da Imagem

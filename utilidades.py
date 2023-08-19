@@ -6,11 +6,19 @@ import time
 from urllib.parse import urlparse
 from tkinter import *
 from tkinter import filedialog
+from tkinter import Tk, filedialog
+from PIL import Image, ImageFilter
 
 class Util:
-  def extrair_nome_extesao_local(self, caminho):
+  def extrair_nome_local(self, caminho):
     nome, extensao = os.path.splitext(caminho)
     return nome, extensao
+  
+  def selecionar_imagem_local(self):
+    Tk().withdraw()
+    filename = filedialog.askopenfilename(title="Selecione uma imagem", filetypes=(
+    ("Arquivos jpg", "*.jpg"), ("Arquivos jpeg", "*.jpeg"), ("Arquivos png", "*.png")))
+    return filename
   
   def extrair_nome_extensao_url(self,url):
     parsed_url = urlparse(url)
@@ -48,7 +56,15 @@ class Main:
 
     except Exception as ex:
       print(f'Erro ao criar imagem: {str(ex)}')
-
+      
+  def cria_imagem2(self, filename):
+    global imagem
+    nome, extensao = os.path.splitext(filename)
+    nome1 = nome + extensao
+    imagem = Image.open(filename)
+    #imagem.save(nome1)
+    return imagem, extensao
+    
   # Filtros:
   def aplica_filtro_escala_de_cinza (self, minha_imagem, nome, extencao):
     try:

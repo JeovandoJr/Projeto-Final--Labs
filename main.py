@@ -2,9 +2,8 @@ import entidades
 import filtros
 import utilidades
 import os
-import glob
 from tkinter import *
-from tkinter import filedialog
+from tkinter import Tk, filedialog
 
 class Principal:
     def menu(self):
@@ -53,13 +52,19 @@ class Principal:
                         print("Ocirreu um erro:", str(e))   
                                                 
                 if opcao_entrada == 1:
-                    caminho_imagem = input("\nInforme o caminho da imagem: ")
+                    caminho_imagem = input("\nInforme o caminho da imagem(URL): ")
                     nome_imagem = input("Informe o nome da imagem: ")
 
                     imagem1, extensao  = app_principal.cria_imagem(caminho_imagem)
                                         
                 elif opcao_entrada == 2:
-                    ''''''
+
+                    print("A pagina para selecionar deve estar aberta")
+                    filename = utilidades1.selecionar_imagem_local()
+                    
+                    imagem1, extensao  = app_principal.cria_imagem2(filename)
+                    
+                    nome_imagem = input("Informe o nome da imagem: ")     
                              
             elif opcao == 2:
                 if imagem1:
@@ -100,4 +105,3 @@ class Principal:
 
 aplicacao = Principal()
 aplicacao.excutar()
- 
