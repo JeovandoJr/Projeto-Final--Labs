@@ -1,9 +1,5 @@
-import entidades
-import filtros
 import utilidades
-import os
 from tkinter import *
-from tkinter import Tk, filedialog
 
 class Principal:
     def menu(self):

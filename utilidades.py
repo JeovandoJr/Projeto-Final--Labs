@@ -7,7 +7,6 @@ from urllib.parse import urlparse
 from tkinter import *
 from tkinter import filedialog
 from tkinter import Tk, filedialog
-from PIL import Image, ImageFilter
 
 class Util:
   def extrair_nome_local(self, caminho):
@@ -134,8 +133,6 @@ class Main:
     lista_imagens = jpeg_files + png_files
     return lista_imagens
   
-  import os
-
   def apagar_imagens(self, lista_imagens):
       for imagem in lista_imagens:
           try:
