@@ -7,6 +7,8 @@ from urllib.parse import urlparse
 from tkinter import *
 from tkinter import filedialog
 from tkinter import Tk, filedialog
+from PIL import Image
+
 
 class Util:
   def extrair_nome_local(self, caminho):
