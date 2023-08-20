@@ -61,6 +61,9 @@ class Principal:
                     except Exception as e:
                         print("Não foi possivel selecionar a imagem. Tente pela URL.")
                         print("Ocirreu um erro:", str(e))
+                        caminho_imagem = input("\nInforme o caminho da imagem(URL): ")
+                        nome_imagem = input("Informe o nome da imagem: ")
+                        imagem1, extensao  = app_principal.cria_imagem(caminho_imagem)
                         
                     imagem1, extensao  = app_principal.cria_imagem2(filename)
                     
