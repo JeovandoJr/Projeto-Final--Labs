@@ -56,8 +56,12 @@ class Principal:
                 elif opcao_entrada == 2:
 
                     print("A pagina para selecionar deve estar aberta")
-                    filename = utilidades1.selecionar_imagem_local()
-                    
+                    try:
+                        filename = utilidades1.selecionar_imagem_local()
+                    except Exception as e:
+                        print("Não foi possivel selecionar a imagem. Tente pela URL.")
+                        print("Ocirreu um erro:", str(e))
+                        
                     imagem1, extensao  = app_principal.cria_imagem2(filename)
                     
                     nome_imagem = input("Informe o nome da imagem: ")     
